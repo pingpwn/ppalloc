@@ -1,15 +1,21 @@
 #include <stdio.h>
 #include "src/ppalloc.h"
-#include <stdlib.h>
+
 int main() {
-	int *ptr1, *ptr2;
+	int *ptr1;
 	
 	ptr1 = ppalloc(20);
-	ptr2 = malloc(20);
 	
 	printf("ppalloc %p\n", ptr1);
-	printf("malloc %p", ptr2);
 
+	ptr1 = realloc((void*)ptr1, 40);
+
+	
+	printf("realloc %p\n", ptr1);
+
+
+	free(ptr1);
+	
 
 	return 69;
 }
